@@ -1,0 +1,17 @@
+article {
+    margin: 0 auto;
+    width: 700px;
+}
+h1, h2 {
+    text-align: center;
+}
+p {
+    font-style: italic;
+}
+h2 {
+    color:grey;
+    font-weight: lighter;
+}
+img {
+    width: 100%;
+}
