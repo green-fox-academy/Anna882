@@ -29,23 +29,28 @@ public class DrawDiagonal {
         }
         System.out.println(currentRow);
 
-        for (row = 2; row <= lines; row++) {
+        for (row = 2; row < lines; row++) {
             currentRow = "";
+            col = 1;
             while (col <= lines) {
 
-                if ((col > 1) && (col != row) && (col < lines)) {
-                    currentRow = currentRow + " ";
-                } else {
+                if (col == 1 || col == row || col == lines) {
                     currentRow = currentRow + "%";
+                } else {
+                    currentRow = currentRow + " ";
                 }
                 col++;
-
 
             }
 
             System.out.println(currentRow);
-        }
 
+        }
+        currentRow = "";
+        for ( row = 1; row <= lines; row++ ) {
+            currentRow = currentRow + pixel;
+        }
+        System.out.println(currentRow);
 
     }
 }
