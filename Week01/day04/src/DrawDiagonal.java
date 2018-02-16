@@ -22,8 +22,30 @@ public class DrawDiagonal {
         String space = " ";
         int row = 1;
         int col = 1;
-        
-        System.out.println();
+        String currentRow = "";
+
+        for ( row = 1; row <= lines; row++ ) {
+            currentRow = currentRow + pixel;
+        }
+        System.out.println(currentRow);
+
+        for (row = 2; row <= lines; row++) {
+            currentRow = "";
+            while (col <= lines) {
+
+                if ((col > 1) && (col != row) && (col < lines)) {
+                    currentRow = currentRow + " ";
+                } else {
+                    currentRow = currentRow + "%";
+                }
+                col++;
+
+
+            }
+
+            System.out.println(currentRow);
+        }
+
 
     }
 }
