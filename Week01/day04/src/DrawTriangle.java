@@ -14,13 +14,12 @@ public class DrawTriangle {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Write the number of lines for the triangle");
         int lines = scanner.nextInt();
-        int i = 1;
         String star = "*";
 
-        while (i <= lines ) {
+        for (int i = 1; i <= lines; i++) {
             System.out.println(star);
             star = star + "*";
-            i++;
         }
+
     }
 }

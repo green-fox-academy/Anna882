@@ -3,17 +3,6 @@ import java.util.Scanner;
 public class DrawDiagonal {
     public static void main (String [] args) {
 
-        // Write a program that reads a number from the standard input, then draws a
-        // square like this:
-        //
-        //
-        // %%%%%
-        // %%  %
-        // % % %
-        // %  %%
-        // %%%%%
-        //
-        // The square should have as many lines as the number was
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Write the number of lines for the square");
@@ -24,29 +13,37 @@ public class DrawDiagonal {
         int col = 1;
         String currentRow = "";
 
+
+        //Draw the first line
         for ( row = 1; row <= lines; row++ ) {
             currentRow = currentRow + pixel;
         }
         System.out.println(currentRow);
 
+
+
         for (row = 2; row < lines; row++) {
+            //After each row the col and the contain of the row (currentRow)
+            //have to be reset/
             currentRow = "";
             col = 1;
-            while (col <= lines) {
 
+        //Create the contain of a row
+            while (col <= lines) {
                 if (col == 1 || col == row || col == lines) {
-                    currentRow = currentRow + "%";
+                    currentRow = currentRow + pixel;
                 } else {
-                    currentRow = currentRow + " ";
+                    currentRow = currentRow + space;
                 }
                 col++;
-
             }
-
+            //Draw the row
             System.out.println(currentRow);
 
         }
+
         currentRow = "";
+        // Draw the last row
         for ( row = 1; row <= lines; row++ ) {
             currentRow = currentRow + pixel;
         }
