@@ -10,19 +10,21 @@ public class RainbowBoxFunction {
         // The square size, and the fill color,
         // and draws a square of that size and color to the center of the canvas.
         // Create a loop that fills the canvas with rainbow colored squares.
-        String[] colors= {"green", "red", "purple", "yellow", "blue", "black", "gray", "pink"};
-        for (int i = 0; i < WIDTH; i++) {
-            int size = WIDTH - i;
-            int colorIndex = (int) (Math.random() * (colors.length - 1))+1;
-            String fillColor = colors[colorIndex];
+        for (int i = 0; i * 5 < WIDTH; i++) {
+            int size = WIDTH - i * 5;
+            int red = (int) (Math.random() * 256);
+            int green = (int) (Math.random() * 256);
+            int blue = (int) (Math.random() * 256);
+            Color fillColor = new Color(red, green, blue);
             squareDrawing(size, fillColor, graphics);
         }
     }
-    public static void squareDrawing(int size, String fillColor, Graphics graphics) {
+    public static void squareDrawing(int size, Color fillColor, Graphics graphics) {
         int x = (WIDTH - size) / 2;
-        int y = (HEIGHT - size) / 2;
-        graphics.setColor(Color.getColor(fillColor));
-        graphics.drawRect(x, y, size, size);
+        int y = (WIDTH - size) / 2;
+
+        graphics.setColor(fillColor);
+        graphics.fillRect(x, y, size, size);
 
     }
 
