@@ -34,9 +34,9 @@ public class Calculator {
     public static void calculate(String userInput) {
         String[] partsOfUserInput = userInput.split(" ");
         String operation = partsOfUserInput[0];
-        double operand1 = Integer.parseInt(partsOfUserInput[1]);
-        double operand2 = Integer.parseInt(partsOfUserInput[2]);
-        double result = Double.parseDouble(null);
+        double operand1 = Double.parseDouble(partsOfUserInput[1]);
+        double operand2 = Double.parseDouble(partsOfUserInput[2]);
+        double result = 0;
         if (operation.equals("*")) {
             result = operand1 * operand2;
         }   else if (operation.equals("+")) {
