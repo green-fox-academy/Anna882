@@ -23,7 +23,6 @@ public class ConnectTheDots {
     public static void connectWithGreenLine(int[][] points, Graphics graphics) {
         graphics.setColor(Color.GREEN);
         int x1, x2, y1, y2;
-        graphics.drawLine(points[points.length-1][0], (points[points.length-1][1]), points[0][0], points[0][1]);
         for (int i = 0; i < points.length - 1; i++){
             x1 = points[i][0];
             y1 = points[i][1];
@@ -31,6 +30,7 @@ public class ConnectTheDots {
             y2 = points[i+1][1];
             graphics.drawLine(x1, y1, x2, y2);
         }
+        graphics.drawLine(points[points.length-1][0], (points[points.length-1][1]), points[0][0], points[0][1]);
 
     }
 
