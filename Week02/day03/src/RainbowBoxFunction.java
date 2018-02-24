@@ -31,8 +31,8 @@ public class RainbowBoxFunction {
 
 
     // Don't touch the code below
-    static int WIDTH = 320;
-    static int HEIGHT = 343;
+    static int WIDTH = 500;
+    static int HEIGHT = 500;
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");

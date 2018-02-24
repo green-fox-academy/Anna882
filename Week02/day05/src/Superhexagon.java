@@ -6,20 +6,19 @@ import java.util.Arrays;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Superhexagon {
-    public static int RADIUS =50;
+    static int RADIUS =50;
+    static int MIN_NUMBER_OF_HEXAGONS = 4;
+
+
     public static void mainDraw(Graphics graphics){
 
-        int minNumberOfHexagons = 4;
-        drawHexagon(graphics, minNumberOfHexagons);
+        drawHexagon(graphics);
     }
 
-    public static void drawHexagon(Graphics graphics, int minNumberOfHexagons) {
+    public static void drawHexagon(Graphics graphics) {
 
-        int[] hexagonXPoints = new int[6];
-        int[] hexagonYPoints = new int[6];
-        int coordinateShiftingX = 0;
-        int coordinateShiftingY = 0;
-        for (int i = 0; i < minNumberOfHexagons; i++) {
+            drawOneHexagon(graphics); }
+       /* for (int i = 0; i < MIN_NUMBER_OF_HEXAGONS; i++) {
             int angle = 30;
             for (int j = 0; j < 6; j++) {
                 double radian = Math.toRadians(angle);
@@ -28,13 +27,32 @@ public class Superhexagon {
                 angle += 60;
             }
             graphics.drawPolygon(hexagonXPoints, hexagonYPoints, 6);
-            coordinateShiftingX = hexagonXPoints[1] - hexagonXPoints[5];
-            coordinateShiftingY = hexagonYPoints[1] - hexagonYPoints[5];
-        }
+            coordinateShiftingX = hexagonXPoints[5] - hexagonXPoints[1];
+            coordinateShiftingY = hexagonYPoints[5] - hexagonYPoints[1];
+        }*/
 
+    public static void drawOneHexagon(Graphics graphics) {
+        int[] hexagonXPoints = new int[6];
+        int[] hexagonYPoints = new int[6];
+        int[] coordinateShifting = new int[2];
+        for (int i = 0; i < MIN_NUMBER_OF_HEXAGONS; i++) {
+            int angle = 30;
+            for (int j = 0; j < 6; j++) {
+                double radian = Math.toRadians(angle);
+                hexagonXPoints[j] =
+                        (int) (coordinateShifting[0] * i + WIDTH / 2 + (RADIUS * Math.sin(radian)));
+
+                hexagonYPoints[j]
+                        = (int) (coordinateShifting[1] * i + HEIGHT / 2 + (RADIUS * Math.cos(radian)));
+                angle += 60;
+            }
+            graphics.drawPolygon(hexagonXPoints, hexagonYPoints, 6);
+            coordinateShifting[0] = hexagonXPoints[5] - hexagonXPoints[1];
+            coordinateShifting[1] = hexagonYPoints[5] - hexagonYPoints[1];
+
+            graphics.drawPolygon(hexagonXPoints, hexagonYPoints, 6);
     }
-
-
+    }
 
 
 

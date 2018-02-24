@@ -8,10 +8,9 @@ public class AppendLetter{
 
         System.out.println(appendA(far));
     }
-    public static List<String> appendA(List<String> far) {
-        List<String> aAppended = far;
+    public static List<String> appendA(List<String> aAppended) {
         for (int i = 0; i < aAppended.size(); i++) {
-        aAppended.set(i, far.get(i) + "a");
+        aAppended.set(i, aAppended.get(i) + "a");
         }
         return aAppended;
     }
