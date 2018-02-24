@@ -18,7 +18,7 @@ public class Unique {
                 uniqueNumbers[uniqueNumbers.length-1] = numbers[i+1];
             }
         }
-        String uniqueNumberList = Arrays.toString(uniqueNumbers);
-        return uniqueNumberList;
+        String uniqueNumberString = Arrays.toString(uniqueNumbers);
+        return uniqueNumberString;
     }
 }
