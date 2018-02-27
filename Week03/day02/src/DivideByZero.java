@@ -4,13 +4,15 @@ public class DivideByZero {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     int divisor = scanner.nextInt();
-
+    dividingFunc(divisor);
+  }
+  public static void dividingFunc(int divisor){
     try {
-      int result = 10 / divisor;
-      System.out.println(result);
+    int result = 10 / divisor;
+    System.out.println(result);
     } catch (ArithmeticException e) {
-      System.out.println("fail");
     }
+    System.out.println("fail");
   }
 }
   // Create a function that takes a number
