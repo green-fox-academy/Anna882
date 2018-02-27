@@ -12,7 +12,7 @@ public class PrintEachLine {
 
     try {
       Path filePath = Paths.get("my-file.txt");
-      System.out.println(Files.readAllLines(filePath));
+      System.out.print(Files.readAllLines(filePath));
       } catch (Exception e) {
       System.out.println("Unable to read file: my-file.txt");
     }
