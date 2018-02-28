@@ -1,4 +1,4 @@
-package BlogPost;
+package blogpost;
 
 public class BlogPost {
   private String authorName;

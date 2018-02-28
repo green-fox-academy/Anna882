@@ -1,4 +1,4 @@
-package PostIt;
+package postit;
 
 public class PostIt {
   String backgroundColor;
@@ -13,7 +13,7 @@ public class PostIt {
 
   @Override
   public String toString() {
-    return "PostIt{" +
+    return "postit{" +
             "backgroundColor='" + backgroundColor + '\'' +
             ", textOnIt='" + textOnIt + '\'' +
             ", textColor='" + textColor + '\'' +
