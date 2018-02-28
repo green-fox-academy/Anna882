@@ -26,11 +26,16 @@ public class TicTacToe {
   }
   public static List<String> ticTacResult(String fileName) {
     Path winnerFilePath = Paths.get(fileName);
-    List<String> winner = new ArrayList<>();
+    List<String> linesOfGameList= new ArrayList<>();
+    String linesOfGameString;
     try{
-      winner = Files.readAllLines(winnerFilePath);
+      linesOfGameList = Files.readAllLines(winnerFilePath);
+      linesOfGameString = linesOfGameList.toString();
+      for (int i = 0; i < linesOfGameString.length(); i++) {
+
+      }
     } catch (IOException e){
     }
-    return winner;
+    return linesOfGameList;
   }
 }

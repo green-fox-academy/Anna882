@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 public class Logs {
@@ -17,16 +18,24 @@ public class Logs {
     }
   }
   public static String[] uniqueIPAdressesFunc(List<String> logMessageFromWebserver) {
-    String[] uniqueIPAdressesList = new String[logMessageFromWebserver.size()];
+    String[] IPAdressArray = new String[logMessageFromWebserver.size()];
     String[] fullLogMessageLinesArray = new String[logMessageFromWebserver.size()];
     logMessageFromWebserver.toArray(fullLogMessageLinesArray);
     int i = 0;
-      for (String line:fullLogMessageLinesArray) {
+    for (String line:fullLogMessageLinesArray) {
         String[] temp= line.split("   ");
-        uniqueIPAdressesList[i] = temp[1];
+        IPAdressArray[i] = temp[1];
         i++;
+    }
+    Arrays.sort(IPAdressArray);
+    String[] uniqueIPAdressesArray = {IPAdressArray[0]};
+    for (int j = 0; j< IPAdressArray.length-1; j++){
+      if (IPAdressArray[j] != IPAdressArray[j+1]) {
+        uniqueIPAdressesArray = Arrays.copyOf(uniqueIPAdressesArray, uniqueIPAdressesArray.length+1);
+        uniqueIPAdressesArray[uniqueIPAdressesArray.length-1] = IPAdressArray[j+1];
       }
-    return uniqueIPAdressesList;
+    }
+    return uniqueIPAdressesArray;
   }
   public static String getPostRatioFunc(List<String> logMessageFromWebserver) {
     String[] fullLogMessageLinesArray = new String[logMessageFromWebserver.size()];
