@@ -33,14 +33,34 @@ public class Graphic {
     int startPointY = 0;
     int startPointX = 0;
     graphics.drawRect(0, 0, startSize, startSize);
-    drawWithRecursion(startSize, startPointX, startPointY, graphics);
+    drawWithRecursion(startSize/3, startPointX, startPointY, graphics);
   }
 
-  public static void drawWithRecursion(int startSize, int startPointX, int startPointY, Graphics graphics){
+  public static void drawWithRecursion(int startSize, int startPointX, int startPointY, Graphics graphics) {
     if (startSize < 1) {
       return;
+    } else {
+      int x1 = startPointX + startSize;
+      int y1 = startPointY + 0;
+      graphics.drawRect(x1, y1, startSize, startSize);
+      drawWithRecursion(startSize/3, x1, y1, graphics);
+      int x2 = startPointX + 0;
+      int y2 = startPointY + startSize;
+      graphics.drawRect(x2, y2, startSize, startSize);
+      drawWithRecursion(startSize/3, x2, y2, graphics);
+      int x3 = startPointX + startSize*2;
+      int y3 = y2;
+      graphics.drawRect(x3, y3, startSize, startSize);
+      drawWithRecursion(startSize/3, x3, y3, graphics);
+      int x4 = startPointX + startSize;
+      int y4 = startPointY + startSize*2;
+      graphics.drawRect(x4, y4, startSize, startSize);
+      drawWithRecursion(startSize/3, x4, y4, graphics);
     }
-    drawOneDimension(startSize, startPointX, startPointY, graphics);
+
+  }
+}
+    /*drawOneDimension(startSize, startPointX, startPointY, graphics);
     drawOneDimension(startSize, startPointX, startPointY+startSize*2, graphics);
     drawOneDimension(startSize, startPointX + startSize, startPointY+startSize, graphics);
     drawOneDimension(startSize, startPointX-startSize, startPointY+startSize, graphics);
@@ -60,5 +80,5 @@ public class Graphic {
     graphics.drawLine(x0, y1, x3, y1);
     graphics.drawLine(x0, y2, x3, y2);
 
-  }
-}
+  }*/
+
