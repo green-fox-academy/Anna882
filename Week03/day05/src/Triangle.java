@@ -46,24 +46,24 @@ public class Triangle {
     pointsY[1] = startY;
     graphics.fillPolygon(pointsX, pointsY, 3);
     graphics.setColor(Color.BLACK);
-    drawTriangle(startSize/2, pointsX, pointsY, graphics);
+    drawTriangle(startSize/2, pointsX, pointsY, pointsY[2]/2, graphics);
   }
-  public static void drawTriangle(int startSize, int[] startX, int[] startY, Graphics graphics ) {
-    if (startSize < 150){
+  public static void drawTriangle(int startSize, int[] startX, int[] startY, int height, Graphics graphics ) {
+    if (startSize < 10){
       return;
     } else {
       int x1[] = {startX[0], startX[1]-startSize, startX[2]-startSize/2};
-      int y1[] = {startY[0], startY[1], startY[2]/2};
+      int y1[] = {startY[0], startY[1], startY[1]+ height};
       graphics.drawPolygon(x1, y1, 3);
       int x2[] = {startX[0]+startSize, startX[1], startX[2]+startSize/2};
-      int y2[] = {startY[0], startY[1], startY[2]/2};
+      int y2[] = {startY[0], startY[1], startY[1]+ height};
       graphics.drawPolygon(x2,y2,3);
-      int x3[] = {startX[2]-startSize/2, startX[1]-startSize/2, startX[2]};
-      int y3[] = {startY[2]/2, startY[2]/2, startY[2]};
+      int x3[] = {startX[2]-startSize/2, x2[2], startX[2]};
+      int y3[] = {y1[2], y2[2], y2[2]+height};
       graphics.drawPolygon(x3, y3, 3);
-      //drawTriangle(startSize/2, x2, y2, graphics);
-      //drawTriangle(startSize/2,x1,y1,graphics);
-      //drawTriangle(startSize/2, x3, y3, graphics);
+      drawTriangle(startSize/2, x2, y2, height/2, graphics);
+      drawTriangle(startSize/2,x1,y1, height/2, graphics);
+      drawTriangle(startSize/2, x3, y3, height/2,  graphics);
 
     }
   }
