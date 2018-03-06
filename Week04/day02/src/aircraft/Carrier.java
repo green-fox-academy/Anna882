@@ -45,7 +45,7 @@ public class Carrier {
 
   public int getTotalDamage() {
     for (Aircraft aircraft:aircrafts) {
-      totalDamage += aircraft.fight();
+      totalDamage += aircraft.getBaseDamage() * aircraft.getAmmo();
     }
     return totalDamage;
   }
