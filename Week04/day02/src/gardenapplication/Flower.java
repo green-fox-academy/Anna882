@@ -1,48 +1,21 @@
 package gardenapplication;
 
-public class Flower {
+public class Flower extends Plant {
 
-  private String flowerColor;
-  private int currentWaterAmount;
-  private boolean needsWater;
-  private double waterAbsorb = 0.75;
 
-  public double getWaterAbsorb() {
-    return waterAbsorb;
+  public Flower(String color) {
+    this.setColor(color);
+    this.setCurrentWaterAmount(0);
+    this.setWaterAbsorb(0.75);
   }
 
-  public Flower(String flowerColor) {
-    this.flowerColor = flowerColor;
-  currentWaterAmount = 0;
-  }
-  public String getFlowerColor() {
-    return flowerColor;
-  }
-
-  public void setFlowerColor(String flowerColor) {
-    this.flowerColor = flowerColor;
-  }
-
-  public int getCurrentWaterAmount() {
-    return currentWaterAmount;
-  }
-
-  public void setCurrentWaterAmount(int currentWaterAmount) {
-    this.currentWaterAmount = currentWaterAmount;
-  }
-
-  public boolean isNeedsWater() {
-    return needsWater;
-  }
-
-  public boolean needsWater() {
-    if (currentWaterAmount < 5){
-
-      System.out.println("The " + flowerColor + " Flower needs water.");
-      return needsWater = true;
+  public void needsWater() {
+    if (this.getCurrentWaterAmount() < 5){
+      System.out.println("The " + getColor() + " Flower needs water.");
+      setNeedsWater();
     } else {
-      System.out.println("The " + flowerColor + " Flower doesn't need water.");
-      return needsWater = false;
+      System.out.println("The " + getColor() + " Flower doesn't need water.");
+      resetNeedsWater();
 
     }
   }
