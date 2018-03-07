@@ -1,5 +1,8 @@
 package fleetofthings;
 
+import java.util.Collections;
+import java.util.List;
+
 public class FleetOfThings {
 
   public static void main(String[] args) {
@@ -14,6 +17,7 @@ public class FleetOfThings {
     fleet.add(thing2);
     fleet.add(thing3);
     fleet.add(thing4);
+    Collections.sort(fleet.getThings());
     // Create a fleet of things to have this output:
     // 1. [ ] Get milk
     // 2. [ ] Remove the obstacles
