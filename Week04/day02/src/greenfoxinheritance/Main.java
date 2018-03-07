@@ -4,6 +4,17 @@ import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
+
+    Student john2 = new Student("John", 20, "male", "BME");
+    john2.introduce();
+
+    try {
+      Object clone = john2.clone();
+      ((Student) clone).introduce();
+    } catch (CloneNotSupportedException e) {
+      System.out.println("cloning doesnt work");
+    }
+
     ArrayList<Person> people = new ArrayList<>();
 
     Person mark = new Person("Mark", 46, "male");
