@@ -16,5 +16,10 @@ public class Main {
 
     Collections.sort(dominoes);
     System.out.println(dominoes);
+
+    for (Domino d : dominoes) {
+      d.printAllFields();
+    }
+
   }
 }
