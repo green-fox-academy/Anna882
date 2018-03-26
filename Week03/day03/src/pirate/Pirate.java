@@ -29,10 +29,10 @@ public class Pirate {
       sleepItOff();
     }
   }
-  public static void passItOut(){
+  public void passItOut(){
     sleepItOff();
   }
-  public static void sleepItOff(){
+  public void sleepItOff(){
 
   }
   public void die(){

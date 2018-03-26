@@ -5,3 +5,5 @@
 * [My webpage](https://anna882.github.io/)
 * [Repository for my webpage](https://github.com/Anna882/Anna882.github.io)
 * [Todo App](https://github.com/Anna882/todo-app)
+* [Wanderer Game](https://github.com/Anna882/wanderer-java)
+* [Basic Exam](https://github.com/Anna882/macrotis-basic-exam)

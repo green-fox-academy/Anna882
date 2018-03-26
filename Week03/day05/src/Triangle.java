@@ -49,7 +49,7 @@ public class Triangle {
     drawTriangle(startSize/2, pointsX, pointsY, pointsY[2]/2, graphics);
   }
   public static void drawTriangle(int startSize, int[] startX, int[] startY, int height, Graphics graphics ) {
-    if (startSize < 10){
+    if (startSize < 1){
       return;
     } else {
       int x1[] = {startX[0], startX[1]-startSize, startX[2]-startSize/2};
