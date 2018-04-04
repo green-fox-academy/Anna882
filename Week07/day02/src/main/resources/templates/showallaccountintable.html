@@ -4,15 +4,44 @@
     <title>Thymeleaf Exercise #</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
     <meta charset="utf-8" />
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+        }
+
+        .king {
+            color: gold;
+        }
+    </style>
 </head>
 <body>
 <div>
-<table>
-    <tr><th>Name</th><th>Balance</th><th>Animal type</th></tr>
+<table border="1">
+    <tr><th>Owner</th><th>Index</th><th>Name</th><th>Balance</th><th>Animal type</th><th>Good or bad guy?</th></tr>
     <tr th:each="bankaccount : ${bankaccountlist}">
+        <td>
+            <span th:if="${bankaccount.isKing()}" th:text="'King!'" class="king"  />
+            <span th:if="!${bankaccount.isKing()}" th:text="'Not king'" />
+        </td>
+        <td th:text="${bankaccountStat.index}"/>
         <td th:text="${bankaccount.name}"/>
         <td th:text="${bankaccount.balance}"/>
-        <td th:text="${bankaccount.animalType}"/></tr>
+        <td th:text="${bankaccount.animalType}"/>
+        <td>
+            <th:block th:switch="${bankaccount.isGoodGuy()}">
+                <div th:case="false">
+                    Bad boy
+                </div>
+                <div th:case="true">
+                    Good guy
+                </div>
+            </th:block>
+        </td>
+        </tr>
 </table>
 </div>
 </body>

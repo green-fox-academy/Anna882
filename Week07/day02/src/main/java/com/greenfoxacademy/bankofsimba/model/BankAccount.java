@@ -5,11 +5,26 @@ public class BankAccount {
   private String name;
   private Integer balance;
   private String animalType;
+  private boolean isGoodGuy;
 
-  public BankAccount(String name, Integer balance, String animalType){
+  public String isGoodGuyAsText() {
+    if (isGoodGuy) return "Good guy";
+    else return "Bad boy";
+  }
+
+  public boolean isGoodGuy() {
+    return isGoodGuy;
+  }
+
+  public boolean isKing() {
+    return name == "Mufasa";
+  }
+
+  public BankAccount(String name, Integer balance, String animalType, boolean isGoodGuy){
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
+    this.isGoodGuy = isGoodGuy;
   }
 
   public String getName() {

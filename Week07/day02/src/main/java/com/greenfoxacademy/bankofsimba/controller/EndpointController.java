@@ -11,7 +11,7 @@ public class EndpointController {
 
   @GetMapping(value = "/show")
   public String showBankAccountFields(Model model) {
-    BankAccount simba = new BankAccount("Simba", 2000, "lion");
+    BankAccount simba = new BankAccount("Simba", 2000, "lion", true);
     model.addAttribute("simba", simba);
     return "ShowBankAccount";
   }
