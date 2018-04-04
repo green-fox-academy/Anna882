@@ -2,27 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Thymeleaf Exercise #</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link rel="stylesheet" th:href="@{/style.css}"/>
     <meta charset="utf-8" />
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-        }
-
-        .king {
-            color: gold;
-        }
-    </style>
 </head>
 <body>
-<div>
-<table border="1">
-    <tr><th>Owner</th><th>Index</th><th>Name</th><th>Balance</th><th>Animal type</th><th>Good or bad guy?</th></tr>
-    <tr th:each="bankaccount : ${bankaccountlist}">
+    <form method="get" action="/showintable">
+        <table>
+    <tr><th>Owner</th>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Animal type</th>
+        <th>Good or bad guy?</th>
+        <th>Good or bad?</th>
+        <th>Raise the Balance</th></tr>
+
+            <tr th:each="bankaccount : ${bankaccountlist}">
         <td>
             <span th:if="${bankaccount.isKing()}" th:text="'King!'" class="king"  />
             <span th:if="!${bankaccount.isKing()}" th:text="'Not king'" />
@@ -41,8 +36,15 @@
                 </div>
             </th:block>
         </td>
+        <td th:text="${bankaccount.isGoodGuy()} ? 'Good guy' : 'Bad boy'"/>
+        </td>
+                <td/>
+
+                    <button type="button" th:action="${bankaccount.raiseBalance()}">Raise</button>
+                </td>
         </tr>
+
 </table>
-</div>
+    </form>
 </body>
 </html>

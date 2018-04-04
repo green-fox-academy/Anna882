@@ -7,9 +7,12 @@ public class BankAccount {
   private String animalType;
   private boolean isGoodGuy;
 
-  public String isGoodGuyAsText() {
-    if (isGoodGuy) return "Good guy";
-    else return "Bad boy";
+  public void raiseBalance() {
+    if (isKing()){
+      balance += 100;
+    } else {
+      balance += 10;
+    }
   }
 
   public boolean isGoodGuy() {
