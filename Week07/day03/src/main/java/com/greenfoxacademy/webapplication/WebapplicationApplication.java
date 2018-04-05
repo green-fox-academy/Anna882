@@ -11,12 +11,16 @@ public class WebapplicationApplication implements CommandLineRunner{
 	@Autowired
 	Printer printer;
 
+	@Autowired
+  MyColor mycolor;
+
 	public static void main(String[] args) {
 		SpringApplication.run(WebapplicationApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println(printer.log("hello"));
+		printer.log("hello");
+		printer.log(mycolor.printColor());
 	}
 }
