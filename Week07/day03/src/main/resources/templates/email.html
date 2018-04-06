@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Useful #</title>
+    <title>Email validation #</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
     <meta charset="utf-8" />
 </head>
 <body>
 <div>
-    <a th:href="@{/useful/colored}">Colored Background</a>
-    <a th:href="@{/useful/email?email=is@this.valid}">Email example</a>
+  <p th:style="'color:' + ${color}" th:text="${reply}"/>
 </div>
 </body>
 </html>
