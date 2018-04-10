@@ -10,4 +10,5 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
 
   public List<Todo> findAllByDone(boolean active);
 
+//  public Todo findTodoById(Long id);
 }

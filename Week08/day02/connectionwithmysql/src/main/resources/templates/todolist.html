@@ -8,6 +8,7 @@
 <body>
 <div>
     <h1>Todos for today:</h1>
+    <a th:href="@{/todo/create}">Add new todo</a>
 
     <table border="1em">
         <th>ID</th>
@@ -19,6 +20,8 @@
         <td th:text="${todo.title}"/>
         <td th:text="${todo.done}"/>
         <td th:text="${todo.urgent}"/>
+        <td><a th:href="@{'/todo/'+ ${todo.id} + '/delete'}">delete</a> </td>
+        <td><a th:href="@{'/todo/' + ${todo.id} + '/update'}">update</a> </td>
     </tr>
     </table>
 </div>
