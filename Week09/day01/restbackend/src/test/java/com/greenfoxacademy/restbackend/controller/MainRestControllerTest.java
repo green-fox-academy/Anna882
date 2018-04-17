@@ -68,32 +68,6 @@ public class MainRestControllerTest {
     this.mockMvc = webAppContextSetup(webApplicationContext).build();
   }
 
-
-  @Test
-  public void doUntilTest6() throws Exception {
-    mockMvc.perform(post("/dountil/sum")
-              .contentType(MediaType.APPLICATION_JSON)
-              .content("{\"until\": 6}"))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.result").value(21));
-  }
-
-  @Test
-  public void doUntilTestWithoutInput() throws Exception {
-    mockMvc.perform(post("/dountil/sum")
-            .contentType(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.error").value("Please provide an operation and a number!"));
-  }
-
-  @Test
-  public void doUntilTestWithWrongPathvariable() throws Exception {
-    mockMvc.perform(post("/dountil/su")
-            .contentType(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.error").value("Please provide an operation and a number!"));
-  }
-
   @Test
   public void doubling23() throws Exception {
     mockMvc.perform(get("/doubling?input=23")
@@ -119,10 +93,51 @@ public class MainRestControllerTest {
   }
 
   @Test
-  public void appending() {
+  public void appendingKutya() throws Exception{
+    mockMvc.perform(get("/appenda/kuty")
+              .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.appended").value("kutya"));
   }
 
   @Test
-  public void countUntil() {
+  public void appendingWithoutAppendable() throws Exception{
+    mockMvc.perform(get("/appenda")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().is4xxClientError());
+  }
+
+  @Test
+  public void countUntilTestFact8() throws Exception{
+    mockMvc.perform(post("/dountil/factor")
+              .contentType(MediaType.APPLICATION_JSON)
+              .content("{\"until\": 8}"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.result").value(40320));
+  }
+
+  @Test
+  public void doUntilTestSum6() throws Exception {
+    mockMvc.perform(post("/dountil/sum")
+              .contentType(MediaType.APPLICATION_JSON)
+              .content("{\"until\": 6}"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.result").value(21));
+  }
+
+  @Test
+  public void doUntilTestWithoutInput() throws Exception {
+    mockMvc.perform(post("/dountil/sum")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.error").value("Please provide an operation and a number!"));
+  }
+
+  @Test
+  public void doUntilTestWithWrongPathvariable() throws Exception {
+    mockMvc.perform(post("/dountil/su")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.error").value("Please provide an operation and a number!"));
   }
 }
