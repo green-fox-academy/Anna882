@@ -7,3 +7,4 @@
 * [Todo App](https://github.com/Anna882/todo-app)
 * [Wanderer Game](https://github.com/Anna882/wanderer-java)
 * [Basic Exam](https://github.com/Anna882/macrotis-basic-exam)
+* [P2P chat application](https://github.com/Anna882/p2p-chat)
