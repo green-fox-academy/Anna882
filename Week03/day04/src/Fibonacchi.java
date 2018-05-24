@@ -7,8 +7,7 @@ public class Fibonacchi {
     if (nthNumber <= 2){
       return 1;
     } else {
-      nthNumber = fibonacchiFac(nthNumber - 1) + fibonacchiFac(nthNumber - 2);
-      return nthNumber;
+      return fibonacchiFac(nthNumber - 1) + fibonacchiFac(nthNumber - 2);
     }
   }
 }

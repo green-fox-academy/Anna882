@@ -7,8 +7,7 @@ public class SumDigit {
     if (n / 10 == 0){
       return n;
     } else {
-      n = n % 10 + sumOfNDigitsRecursively(n / 10);
-      return n;
+      return n % 10 + sumOfNDigitsRecursively(n / 10);
     }
 
   }

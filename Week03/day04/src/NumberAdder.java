@@ -8,8 +8,7 @@ public class NumberAdder {
     if (n == 0){
       return 0;
     } else {
-      n = n+addNumbers(n-1);
-      return n;
+      return n+addNumbers(n-1);
     }
   }
 }
